@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','PagesController@inicio')->name('inicio');
 
-Route::get('/{id}','PagesController@detalle')->name('notas.detalle');
+Route::get('/detalle/id}','PagesController@detalle')->name('notas.detalle');
+
+Route::post('/', 'PagesController@crear')->name('notas.crear');
+
+Route::get('/editar/{id}', 'PagesController@editar')->name('notas.editar');
+
+Route::put('/editar/{id}', 'PagesController@actualizar')->name('notas.actualizar');
 
 Route::get('fotos', 'PagesController@fotos')->name('foto');
 
