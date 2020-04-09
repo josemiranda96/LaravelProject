@@ -21,6 +21,8 @@ Route::post('/', 'PagesController@crear')->name('notas.crear');
 
 Route::get('/editar/{id}', 'PagesController@editar')->name('notas.editar');
 
+Route::delete('/eliminar/{id}', 'PagesController@eliminar')->name('notas.eliminar');
+
 Route::put('/editar/{id}', 'PagesController@actualizar')->name('notas.actualizar');
 
 Route::get('fotos', 'PagesController@fotos')->name('foto');

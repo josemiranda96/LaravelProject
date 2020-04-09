@@ -13,7 +13,6 @@
 <form action="{{route('notas.actualizar', $nota->id)}}" method="POST">
 @method('PUT')
 
-    //Token de seguridad.
     @csrf
 
     @error('nombre')

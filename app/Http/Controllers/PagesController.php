@@ -9,7 +9,7 @@ use App;
 class PagesController extends Controller
 {
     public function inicio(){
-        $notas = App\Nota::all();
+        $notas = App\Nota::paginate(2);
         return view('welcome', compact('notas'));
     }
 
@@ -63,4 +63,13 @@ class PagesController extends Controller
         $notaActualizar->save();
         return back()->with('mensaje', 'Nota Actualizada');
     }
+
+    public function eliminar($id){
+
+        $notaEliminar = App\Nota::findOrFail($id);
+        $notaEliminar->delete();
+    
+        return back()->with('mensaje', 'Nota Eliminada');
+    }
+    
 }

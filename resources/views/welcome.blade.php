@@ -11,7 +11,6 @@
     @endif
 
     <form action="{{route('notas.crear')}}" method="POST">
-    //Token de seguridad.
     @csrf
 
     @error('nombre')
@@ -64,7 +63,13 @@
       </td>
       <td>{{$item->descripcion}}</td>
       <td>
+
       <a href="{{ route('notas.editar', $item)}}" class="btn btn-warning btn-sm">Editar</a>
+      <form action="{{ route('notas.eliminar', $item) }}" class="d-inline" method="POST">
+        @method('DELETE')
+        @csrf
+        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+      </form> 
 
       </td>
     </tr>
@@ -72,4 +77,6 @@
   </tbody>
 </table>
 </div>
+
+{{ $notas->links() }}
 @endsection
